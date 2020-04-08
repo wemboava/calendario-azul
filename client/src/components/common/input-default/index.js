@@ -1,10 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Input } from '@rocketseat/unform';
 
 const InputWrapper = styled.div`
 	.input-group {
-		margin-bottom: 35px;
-		position: relative;
+    margin-bottom: ${props => props.isLastField ? '0' : '35px'};
+    position: relative;
+
+    & span {
+      position: absolute;
+      color: #FF4747;
+      font-size: 0.9em;
+    }
 	}
 
   .input {
@@ -37,7 +44,9 @@ const InputWrapper = styled.div`
   }
 
   .input-group input:focus + label,
+  .input-group input:focus + span + label,
   .input-group input:valid + label,
+  .input-group input:valid + span + label,
   .input-group input.has-value + label {
     top: -10px;
     font-size: xx-small;
@@ -46,21 +55,21 @@ const InputWrapper = styled.div`
   .icon {
     width: 25px;
     position: absolute;
-    bottom: 10px;
+    bottom: 9px;
   }
 `;
 
-export default ({ label, icon, name, value, onChange, isPassword }) => {
+export default ({ label, icon, name, isLastField, isPassword }) => {
   return (
-    <InputWrapper>
+    <InputWrapper isLastField={isLastField}>
       <div class="input-group">
         <img class="icon" src={`https://img.icons8.com/ios/120/00AEEF/${icon}.png`}/>
-        <input
+        <Input
           required
           type={!isPassword ? '' : 'password'}
           name={name}
-          value={value}
-          onChange={event => onChange(event)}
+          // value={value}
+          // onChange={event => onChange(event)}
           class="input"
           autoComplete="off"
         />
