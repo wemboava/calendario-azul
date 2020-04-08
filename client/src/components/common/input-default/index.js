@@ -12,50 +12,58 @@ const InputWrapper = styled.div`
     width: 100%;
     height: 30px;
     border: 0;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 1px solid #b1b1b1;
     padding: 1.2em 1.2em 1.2em 2.5em;
     font-size: 16px;
     box-sizing: border-box;
     background: none;
     outline: none;
-    color: #78909c;
+    color: #555;
     transition: all 0.2s ease-in;
   }
 
   .input:focus {
-    border-bottom: 2px solid #00AEEF;
+    border-bottom: 1px solid #00AEEF;
   }
 
   label {
-      position: absolute;
-      top: 35%;
-      left: 39px;
-      color: #B0BEC5;
-      pointer-events: none;
-      font-size: medium;
-      transition: all 0.3s ease;
-    }
+    position: absolute;
+    top: 35%;
+    left: 39px;
+    color: #B0BEC5;
+    pointer-events: none;
+    font-size: medium;
+    transition: all 0.3s ease;
+  }
 
-    .input-group input:focus + label,
-    .input-group input:valid + label,
-    .input-group input.has-value + label {
-      top: -10px;
-      font-size: xx-small;
-    }
+  .input-group input:focus + label,
+  .input-group input:valid + label,
+  .input-group input.has-value + label {
+    top: -10px;
+    font-size: xx-small;
+  }
 
-    .email {
-      width: 25px;
-      position: absolute;
-      bottom: 10px;
-    }
+  .icon {
+    width: 25px;
+    position: absolute;
+    bottom: 10px;
+  }
 `;
 
-export default ({ label, icon, isPassword }) => {
+export default ({ label, icon, name, value, onChange, isPassword }) => {
   return (
     <InputWrapper>
       <div class="input-group">
-        <img class="email" src={`https://img.icons8.com/ios/120/00AEEF/${icon}.png`}/>
-        <input required type={isPassword ? 'password' : 'text'} name="email" class="input" autocomplete="new-password" />
+        <img class="icon" src={`https://img.icons8.com/ios/120/00AEEF/${icon}.png`}/>
+        <input
+          required
+          type={!isPassword ? '' : 'password'}
+          name={name}
+          value={value}
+          onChange={event => onChange(event)}
+          class="input"
+          autoComplete="off"
+        />
         <label>{label}</label>
       </div>
     </InputWrapper>

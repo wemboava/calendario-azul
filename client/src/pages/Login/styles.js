@@ -2,21 +2,29 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   height: 100%;
-  background: url(${require('../../images/autismo-cover.jpg')});
-  background-size: cover;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: flex-end;
+  @media(min-width: 768px) {
+    display: flex;
+    justify-content: flex-end;
+    background: url(${require('../../images/autismo-cover.jpg')});
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 `;
 
 export const Content = styled.div`
   height: 100%;
-  width: 500px;
-  background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 100px 35px 50px 35px;
+
+  @media(min-width: 768px) {
+    width: 40%;
+    max-width: 450px;
+    min-width: 350px;
+    background-color: #fff;
+    box-shadow: -3px 0px 13px 1px rgba(0, 0, 0, 0.15);
+  }
   .logo-wrapper {
     display: flex;
     justify-content: center;

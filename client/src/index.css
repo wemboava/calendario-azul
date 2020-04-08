@@ -1,13 +1,102 @@
-body {
+
+@font-face {
+  font-family: 'Cereal';
+  font-weight: 200;
+  src: local('Cereal'), url('./fonts/AirbnbCereal-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Cereal';
+  font-weight: 300;
+  src: local('Cereal'), url('./fonts/AirbnbCereal-Book.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Cereal';
+  font-weight: 500;
+  src: local('Cereal'), url('./fonts/AirbnbCereal-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Cereal';
+  font-weight: 700;
+  src: local('Cereal'), url('./fonts/AirbnbCereal-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Cereal';
+  font-weight: 800;
+  src: local('Cereal'), url('./fonts/AirbnbCereal-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Cereal';
+  font-weight: 900;
+  src: local('Cereal'), url('./fonts/AirbnbCereal-Black.ttf') format('truetype');
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Cereal, Arial;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+span,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  color: #484848;
+  font-weight: 300;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+input {
+  font-weight: 300;
 }
