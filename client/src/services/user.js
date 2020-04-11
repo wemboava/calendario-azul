@@ -5,7 +5,7 @@ class UserService extends BaseService {
     return this.post(`${this.getUrl()}/users`, data)
   }
   update (data) {
-    return this.post(`${this.getUrl()}/users`, data)
+    return this.put(`${this.getUrl()}/users`, data)
   }
 }
 
