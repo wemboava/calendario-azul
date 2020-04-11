@@ -23,25 +23,28 @@ class Login extends Component {
   }
 
   handleSubmit = data => {
-    this.setState({ isLoading: true })
+    this.props.handleLoader();
 
     AuthService.login(data)
       .then(response => {
         setTimeout(() => {
-          this.setState({ isLoading: false })
+          this.props.handleLoader();
           this.props.history.push('/');
         }, 1500);
       })
       .catch(error => {
         setTimeout(() => {
-          this.setState({ isLoading: false })
+          this.props.handleLoader();
+          this.props.history.push('/');
         }, 1500);
       })
   }
 
   render () {
+    const { showSession, handleShow } = this.props;
+
     return (
-      <Content>
+      <Content showSession={showSession}>
         <div className="logo-wrapper">
           <img src={require('../../images/logo-with-label.svg')} />
         </div>
@@ -70,9 +73,9 @@ class Login extends Component {
             <button form="login-form" type="submit">Entrar</button>
           </div>
           <span>Ainda não tem conta?</span>
-          <Link to="/register">
+          <a onClick={() => handleShow('showRegister')}>
             Cadastre-se!
-          </Link>
+          </a>
         </div>
       </Content>
     )

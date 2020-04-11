@@ -2,10 +2,19 @@ import styled from 'styled-components';
 
 export const Content = styled.div`
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 100px 35px 50px 35px;
+
+  position: absolute;
+  left: 0;
+  /* left: ${props => props.showSession ? '0' : '-100%'}; */
+  transition: .5s ease;
+
+  visibility: ${props => props.showSession ? 'visible' : 'hidden'};
+  opacity: ${props => props.showSession ? '1' : '0'};
 
   @media(min-width: 768px) {
     width: 40%;
@@ -13,6 +22,8 @@ export const Content = styled.div`
     min-width: 350px;
     background-color: #fff;
     box-shadow: -3px 0px 13px 1px rgba(0, 0, 0, 0.15);
+    left: auto;
+    right: ${props => props.showSession ? '0' : '-50%'};
   }
   .logo-wrapper {
     display: flex;

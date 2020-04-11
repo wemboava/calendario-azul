@@ -4,17 +4,19 @@ import * as Yup from 'yup';
 import { Form } from '@rocketseat/unform';
 
 import { Content } from './styles';
-import AuthService from '../../services/auth';
+import UserService from '../../services/user';
 import { InputDefault } from '../common';
 
 const schema = Yup.object().shape({
+  name: Yup.string()
+    .required('O nome é obrigatório'),
   email: Yup.string()
     .email('Insira um email válido!')
     .required('O email é obrigatório'),
   password: Yup.string().required('A senha é obrigatória')
 })
 
-class Login extends Component {
+class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,25 +25,27 @@ class Login extends Component {
   }
 
   handleSubmit = data => {
-    this.setState({ isLoading: true })
+    this.props.handleLoader();
 
-    AuthService.login(data)
+    UserService.create(data)
       .then(response => {
         setTimeout(() => {
-          this.setState({ isLoading: false })
-          this.props.history.push('/');
+          this.props.handleLoader();
+          this.props.handleShow('showLogin')
         }, 1500);
       })
       .catch(error => {
         setTimeout(() => {
-          this.setState({ isLoading: false })
+          this.props.handleLoader();
         }, 1500);
       })
   }
 
   render () {
+    const { showSession, handleShow } = this.props;
+
     return (
-      <Content>
+      <Content showSession={showSession}>
         <div className="logo-wrapper">
           <img src={require('../../images/logo-with-label.svg')} />
         </div>
@@ -49,7 +53,7 @@ class Login extends Component {
         <Form
           onSubmit={this.handleSubmit}
           schema={schema}
-          id="login-form"
+          id="register-form"
           autoComplete="off"
         >
           <InputDefault
@@ -68,27 +72,20 @@ class Login extends Component {
             name="password"
             isPassword
           />
-          <InputDefault
-            label="Confirme sua senha"
-            icon="password--v1"
-            name="password"
-            isLastField
-            isPassword
-          />
         </Form>
 
         <div className="login-footer">
           <div className="login-footer__login-button">
-            <button form="login-form" type="submit">Salvar</button>
+            <button form="register-form" type="submit">Criar conta</button>
           </div>
           <span>Ja tem uma conta?</span>
-          <Link to="/register">
+          <a onClick={() => handleShow('showLogin')}>
             Entrar
-          </Link>
+          </a>
         </div>
       </Content>
     )
   }
 }
 
-export default Login;
+export default Register;
