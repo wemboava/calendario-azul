@@ -62,15 +62,15 @@ const InputWrapper = styled.div`
 export default ({ label, icon, name, isLastField, isPassword }) => {
   return (
     <InputWrapper isLastField={isLastField}>
-      <div class="input-group">
-        <img class="icon" src={`https://img.icons8.com/ios/120/00AEEF/${icon}.png`}/>
+      <div className="input-group">
+        <img className="icon" src={`https://img.icons8.com/ios/120/00AEEF/${icon}.png`}/>
         <Input
           required
           type={!isPassword ? '' : 'password'}
           name={name}
           // value={value}
           // onChange={event => onChange(event)}
-          class="input"
+          className="input"
           autoComplete="off"
         />
         <label>{label}</label>

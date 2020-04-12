@@ -1,6 +1,7 @@
 import Cookies from 'js-cookie'
 import axios from 'axios'
 
+const TOKEN_KEY = "client_token";
 class SessionService {
   // Cookies
   getCookie (name) {
@@ -10,20 +11,24 @@ class SessionService {
 
   setCookie (name, data) {
     Cookies.set(name, JSON.stringify(data.token), {
-      expires: data.expire / 60 / 24,
+      expires: 99999,
       domain: window.location.hostname
     })
   }
 
   removeCookie (name) {
     Cookies.remove(name, {
-      expires: 1 / 48,
+      expires: 99999,
       domain: window.location.hostname
     })
   }
 
+  isAuthenticated = () => this.getCookie(TOKEN_KEY) !== null;
+
+  getToken = () => this.getCookie(TOKEN_KEY);
+
   configAxios = () => {
-    let token = JSON.parse(this.getCookie('client_tokens'))
+    let token = JSON.parse(this.getCookie(TOKEN_KEY))
 
     token = (token) ? `Bearer ${token}` : token
 
@@ -31,4 +36,4 @@ class SessionService {
   }
 }
 
-export default new SessionService()
+export default new SessionService();

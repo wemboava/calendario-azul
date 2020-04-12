@@ -5,6 +5,7 @@ import { Form } from '@rocketseat/unform';
 
 import { Content } from './styles';
 import AuthService from '../../services/auth';
+import SessionService from '../../services/session';
 import { InputDefault } from '../common';
 
 const schema = Yup.object().shape({
@@ -27,15 +28,16 @@ class Login extends Component {
 
     AuthService.login(data)
       .then(response => {
+        console.log('client_token', response.data.token);
+        SessionService.setCookie('client_token', { token: response.data.token })
         setTimeout(() => {
           this.props.handleLoader();
-          this.props.history.push('/');
+          this.props.history.push('/dashboard');
         }, 1500);
       })
       .catch(error => {
         setTimeout(() => {
           this.props.handleLoader();
-          this.props.history.push('/');
         }, 1500);
       })
   }

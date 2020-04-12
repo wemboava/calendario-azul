@@ -8,7 +8,7 @@ export default ({ isActivity }) => {
         <div className="loader">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118.219 116.756">
             <g id="Group_858" data-name="Group 858" transform="translate(-148.101 -279)">
-              <path stroke-miterlimit="10" id="Path_1758" data-name="Path 1758" className="cls-1 teste" d="M690.276,98a17.686,17.686,0,0,0-17.763,17.521v9.865H654.9v7.509h17.613v18.4h7.613v-18.4h10a17.686,17.686,0,0,0,17.763-17.521A17.433,17.433,0,0,0,690.276,98Zm0,27.385h-10v-9.865a10,10,0,1,1,10,9.865Z" transform="translate(-441.57 181)"/>
+              <path strokeMiterlimit="10" id="Path_1758" data-name="Path 1758" className="cls-1 teste" d="M690.276,98a17.686,17.686,0,0,0-17.763,17.521v9.865H654.9v7.509h17.613v18.4h7.613v-18.4h10a17.686,17.686,0,0,0,17.763-17.521A17.433,17.433,0,0,0,690.276,98Zm0,27.385h-10v-9.865a10,10,0,1,1,10,9.865Z" transform="translate(-441.57 181)"/>
               <g id="Group_845" data-name="Group 845" transform="translate(148.1 306.533)">
                 <g id="Group_840" data-name="Group 840">
                   <path id="Path_1759" data-name="Path 1759" className="cls-3" d="M693.894,205.923H618.962a7.751,7.751,0,0,1-7.762-7.656V124.356a7.752,7.752,0,0,1,7.762-7.656h50.6v7.509h-50.6a.145.145,0,0,0-.149.147V198.12a.146.146,0,0,0,.149.147h74.932a.145.145,0,0,0,.149-.147V148.8h7.613V198.12A7.781,7.781,0,0,1,693.894,205.923Z" transform="translate(-611.2 -116.7)"/>
