@@ -1,7 +1,11 @@
 import React from 'react';
+import { Header } from '../../components/common';
 
 export default Landing => {
   return (
-    <h1>Landing</h1>
+    <div>
+      <Header />
+      Landing page
+    </div>
   )
 }
