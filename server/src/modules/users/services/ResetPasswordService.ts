@@ -32,7 +32,7 @@ class SendForgotPasswordEmailService {
       throw new AppError("User Token does not exists.");
     }
 
-    const user = await this.usersRepository.findById(userToken?.user_id);
+    const user = await this.usersRepository.findById(userToken.user_id);
 
     if (!user) {
       throw new AppError("User does not exists.");

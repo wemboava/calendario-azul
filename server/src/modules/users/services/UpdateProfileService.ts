@@ -9,7 +9,7 @@ import IUsersRepository from "../repositories/IUsersRepository";
 import { Gender } from "../infra/typeorm/entities/User";
 
 interface Request {
-  user_id: string;
+  user_id: number;
   name: string;
   email: string;
   old_password?: string;

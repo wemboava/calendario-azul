@@ -9,10 +9,10 @@ export default class CreateUserTokens1596682029453
         columns: [
           {
             name: "id",
-            type: "uuid",
+            type: "int",
             isPrimary: true,
-            generationStrategy: "uuid",
-            default: "uuid_generate_v4()",
+            isGenerated: true,
+            generationStrategy: 'increment',
           },
           {
             name: "token",
@@ -22,7 +22,7 @@ export default class CreateUserTokens1596682029453
           },
           {
             name: "user_id",
-            type: "uuid",
+            type: "int",
           },
           {
             name: "created_at",

@@ -14,8 +14,8 @@ export enum Gender {
 
 @Entity("users")
 class User {
-  @PrimaryGeneratedColumn("uuid")
-  id: string;
+  @PrimaryGeneratedColumn()
+  id: number;
 
   @Column()
   name: string;
