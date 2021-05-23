@@ -6,7 +6,7 @@ const style: CSSProperties = {
   textShadow: '0px 0px 1px #000',
   padding: ".4rem",
   textAlign: "center",
-  fontSize: "5rem",
+  fontSize: "4.5rem",
   fontWeight: 'bold',
 };
 

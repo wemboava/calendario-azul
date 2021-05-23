@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { DndProvider } from 'react-dnd'
-	import { HTML5Backend } from 'react-dnd-html5-backend'
+	import { TouchBackend } from 'react-dnd-touch-backend'
 import { BottomHeader, GameContent } from '../../components/common';
 import { Content, Header } from './styles';
 
@@ -19,7 +19,7 @@ const Routine: React.FC = () => {
         <div />
       </Header>
       <Content>
-        <DndProvider backend={HTML5Backend}>
+        <DndProvider backend={TouchBackend}>
 					<GameContent />
 				</DndProvider>
       </Content>
