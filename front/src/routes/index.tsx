@@ -5,6 +5,7 @@ import SessionService from '../services/session';
 import Login from '../pages/Login';
 import Dashboard from '../pages/Dashboard';
 import Routine from '../pages/Routine';
+import Game from '../pages/Game';
 
 interface IProps extends RouteProps {
   component: React.ComponentType<any>
@@ -31,6 +32,7 @@ const Router = () => {
         <Route exact path="/" component={Dashboard} />
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
         <Route exact path="/rotina/:id" component={Routine} />
+        <Route exact path="/rotina/game/:id" component={Game} />
       </Switch>
     </BrowserRouter>
   )

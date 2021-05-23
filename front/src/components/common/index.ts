@@ -7,6 +7,7 @@ import CreateRoutine from './create-routine';
 import InputForm from './input-form';
 import SelectForm from './select-form';
 import RoutineImage from './routine-images';
+import GameContent from './game-content';
 
 export {
   InputDefault,
@@ -17,5 +18,6 @@ export {
   CreateRoutine,
   InputForm,
   SelectForm,
-  RoutineImage
+  RoutineImage,
+  GameContent
 }

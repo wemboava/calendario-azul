@@ -33,7 +33,7 @@ export default () => {
             <li className="nav__options__item">
               <Link to="/login">
                 <img src={require('../../../images/icons/ranking.svg').default} />
-                <span>Ranking</span>
+                <span>Ajuda</span>
               </Link>
             </li>
             <li className="nav__options__item">
