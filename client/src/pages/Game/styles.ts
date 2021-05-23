@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Content = styled.div`
-  padding: 40px;
+  padding: 40px 15px;
   .actions {
     width: 100%;
     display: flex;

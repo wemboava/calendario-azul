@@ -6,7 +6,7 @@ const style: CSSProperties = {
   textShadow: '0px 0px 1px #000',
   padding: ".4rem",
   textAlign: "center",
-  fontSize: "4.5rem",
+  fontSize: "3.8rem",
   fontWeight: 'bold',
 };
 
@@ -34,9 +34,9 @@ export const Dustbin: FC<DustbinProps> = memo(function Dustbin({
   let backgroundColor = "#fff";
   let color = lastDroppedItem ? '#000' : '#fff'
   if (isActive) {
-    backgroundColor = "darkgreen";
+    backgroundColor = "#2196f32e";
   } else if (canDrop) {
-    backgroundColor = "darkkhaki";
+    backgroundColor = "#2196f32e";
   }
 
   return (

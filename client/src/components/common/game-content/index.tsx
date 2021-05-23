@@ -27,27 +27,23 @@ export interface ContainerState {
   boxes: BoxSpec[]
 }
 
-const ItemTypes = {
-  FOOD: 'food',
-  GLASS: 'glass',
-  PAPER: 'paper',
-}
-
 export const Container: FC = memo(function Container() {
   const [dustbins, setDustbins] = useState<DustbinState[]>([
-    { accepts: ['P'], lastDroppedItem: null },
     { accepts: ['R'], lastDroppedItem: null },
-    { accepts: ['A'], lastDroppedItem: null },
+    { accepts: ['O'], lastDroppedItem: null },
+    { accepts: ['T'], lastDroppedItem: null },
     { accepts: ['I'], lastDroppedItem: null },
+    { accepts: ['N'], lastDroppedItem: null },
     { accepts: ['A'], lastDroppedItem: null },
   ])
 
   const [boxes] = useState<BoxState[]>([
-    { name: 'A', type: 'A' },
-    { name: 'P', type: 'P' },
+    { name: 'T', type: 'T' },
+    { name: 'O', type: 'O' },
+    { name: 'R', type: 'R' },
     { name: 'I', type: 'I' },
     { name: 'A', type: 'A' },
-    { name: 'R', type: 'R' },
+    { name: 'N', type: 'N' },
   ])
 
   const [droppedBoxNames, setDroppedBoxNames] = useState<string[]>([])
@@ -75,6 +71,8 @@ export const Container: FC = memo(function Container() {
     [droppedBoxNames, dustbins],
   )
 
+  console.log({ droppedBoxNames, dustbins, boxes })
+
   return (
     <div>
       <div style={{ overflow: 'hidden', display: 'flex', justifyContent: 'space-between' }}>
@@ -97,6 +95,11 @@ export const Container: FC = memo(function Container() {
             key={index}
           />
         ))}
+      </div>
+      <div>
+        {droppedBoxNames.length === dustbins.length && <div style={{ textAlign: 'center', fontSize: '3em', color: '#f44336' }}>
+          Aeee cuzão, acertou mizerável!
+          </div>}
       </div>
     </div>
   )
